@@ -12,5 +12,13 @@ def parse_record(line: str):
                 'date': parts[2].strip()
                 }
     return result
-    
-            
+def read_valid(lines: list[str]):
+    results = [] 
+    for line in lines:
+        if not line.strip(): 
+            continue
+        try:
+            results.append(parse_record(line))
+        except ValueError:
+            pass
+    return results
