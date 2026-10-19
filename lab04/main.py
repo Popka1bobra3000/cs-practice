@@ -13,10 +13,10 @@ for line in lines:
 valid_count = len(valid_records)
 city = warmest_city(valid_records)
 averages = average_by_city(valid_records)
-print(f"правильных записей  - {valid_count}")
-print(f"ошибок - {errors}")
+print(valid_count)
+print(errors)
 if city:
-    print(f"самый теплый город - {city}")
+    print(averages[city])
 else:
     print("бубубубебебе")
     
