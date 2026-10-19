@@ -36,3 +36,10 @@ def average_by_city(records: list[dict]):
     for city in cities:
         average[city] = round(cities[city] / counts[city], 1)
     return average
+def warmest_city(records: list[dict]):
+    if not records: 
+        return ''
+    averages = average_by_city(records)
+    if not averages: 
+        return ""
+    return min(averages.keys(), key=lambda city: (-averages[city], city))
