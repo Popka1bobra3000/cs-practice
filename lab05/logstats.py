@@ -12,6 +12,7 @@ def parse_event(line: str) -> dict:
             "level" level
             "message": message
     }
+
 def count_levels(lines) -> dict:
     result = {}
     for line in lines:
@@ -23,6 +24,7 @@ def count_levels(lines) -> dict:
         except ValueError:
             result["BROKEN"] = result.get("BROKEN",0) + 1
     return result
+
 def top_errors(lines, n: int) -> list[list]:
     result = {}
     if n <= 0:
@@ -39,6 +41,17 @@ def top_errors(lines, n: int) -> list[list]:
             pass
     sort = sorted(result.items(), key=lambda item: (-item[1], item[0]))
     return [[message, count] for message, count in sort[:n]]
+
+def format_report(counts: dict, errors: list[list]) -> str
+    lines = ["Отчёт по журналу", ""]
+    for level in sorted(count.keys()):
+        lines.append(f"{level}: {counts[level]}")
+    lines.append("")
+    if errors:
+        for massage, count in errors:
+            lines.append(f"- {massage} - {count}")
+    return "\n".join(lines) + "\n"
+
     
     
 
