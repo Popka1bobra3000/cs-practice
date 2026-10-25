@@ -5,7 +5,7 @@ def parse_event(line: str) -> dict:
     line = line.strip()
     if not line:
         raise ValueError
-    parts = line.split(" ", 2)
+    parts = line.split(maxsplit=2)
     if len(parts) != 3:
         raise ValueError
     time, level, message = parts
