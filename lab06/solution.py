@@ -4,10 +4,8 @@ def count_by_extension(paths):
         parts = p.split("/")
         filename = parts[-1]
         
-        # Находим последнюю точку
         dot_index = filename.rfind(".")
         
-        # Если точки нет вообще или точка стоит на самом первом месте (.gitignore)
         if dot_index <= 0:
             ext = ""
         else:
