@@ -45,7 +45,7 @@ def top_errors(lines, n: int) -> list[list]:
                 message = event["message"]
                 result[message] = result.get(message, 0) + 1
         except ValueError:
-            pass  # Битая строка просто пропускается
+            pass  
             
     sort = sorted(result.items(), key=lambda item: (-item[1], item[0]))
     return [[message, count] for message, count in sort[:n]]
